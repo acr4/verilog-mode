@@ -607,7 +607,7 @@ If non nil, treat as:
   :type 'boolean)
 (put 'verilog-indent-declaration-macros 'safe-local-variable 'verilog-booleanp)
 
-(defcustom verilog-indent-declaration-userdef nil
+(defcustom verilog-indent-declaration-userdef t
   "How to treat typedef expansions in a declaration.
 If nil, indent as:
 	input logic [31:0] a;
