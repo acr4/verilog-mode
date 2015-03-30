@@ -6321,7 +6321,8 @@ Return >0 for nested struct."
 (defun verilog-forward-userdef-declaration (edpos)
   "If looking at a userdefined declaration, such as with typedefs, return true"
   (save-excursion
-    (progn (setq b (point))
+    (let ((b (point))
+          (e        ))
 	   (if (verilog-re-search-forward verilog-declaration-re-1-userdef edpos 'move)
 	       ;; it matched the superset of userdef-re, now check if it is just a 
 	       ;; normal declaration
@@ -6337,7 +6338,8 @@ Return >0 for nested struct."
 (defun verilog-backward-userdef-declaration (beg)
   "If looking at a userdefined declaration, such as with typedefs, return true"
   (save-excursion
-    (progn (setq e (point))
+    (let ((e (point))
+          (b        ))
 	   (if (verilog-re-search-backward verilog-declaration-re-1-userdef beg 'move)
 	       ;; it matched the superset of userdef-re, now check if it is just a 
 	       ;; normal declaration
